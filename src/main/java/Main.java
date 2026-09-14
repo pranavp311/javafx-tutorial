@@ -18,7 +18,8 @@ public class Main extends Application {
             loader.<MainWindow>getController().setDuke(duke);
 
             stage.setTitle("Duke");
-            stage.setResizable(false);
+            stage.setMinHeight(220);
+            stage.setMinWidth(417);
             stage.setScene(new Scene(mainWindow));
             stage.show();
         } catch (IOException e) {

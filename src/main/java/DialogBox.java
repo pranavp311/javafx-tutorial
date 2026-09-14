@@ -11,6 +11,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 
 /** A message with the speaker's image. */
 public class DialogBox extends HBox {
@@ -31,6 +33,8 @@ public class DialogBox extends HBox {
 
         dialog.setText(text);
         displayPicture.setImage(image);
+        dialog.setMinHeight(Region.USE_PREF_SIZE);
+        HBox.setHgrow(dialog, Priority.ALWAYS);
     }
 
     private void flip() {
@@ -38,14 +42,18 @@ public class DialogBox extends HBox {
         Collections.reverse(children);
         getChildren().setAll(children);
         setAlignment(Pos.TOP_LEFT);
+        dialog.getStyleClass().add("reply-label");
     }
 
     public static DialogBox getUserDialog(String text, Image image) {
-        return new DialogBox(text, image);
+        DialogBox dialogBox = new DialogBox(text, image);
+        dialogBox.dialog.getStyleClass().add("user-label");
+        return dialogBox;
     }
 
     public static DialogBox getDukeDialog(String text, Image image) {
         DialogBox dialogBox = new DialogBox(text, image);
+        dialogBox.dialog.getStyleClass().add("duke-label");
         dialogBox.flip();
         return dialogBox;
     }

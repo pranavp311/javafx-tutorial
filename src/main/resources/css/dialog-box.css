@@ -1,0 +1,20 @@
+.label {
+    -fx-background-radius: 12 12 4 12;
+    -fx-padding: 8 10 8 10;
+}
+
+.user-label {
+    -fx-background-color: #dce9f7;
+}
+
+.duke-label {
+    -fx-background-color: #e7ebf0;
+}
+
+.reply-label {
+    -fx-background-radius: 12 12 12 4;
+}
+
+#displayPicture {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.18), 6, 0.2, 0, 2);
+}
